@@ -1,0 +1,24 @@
+### Register
+POST http://localhost:8000/api/v1/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "John Doe",
+    "email": "john",
+    "password": "password",
+}
+
+
+
+### Auth Register
+POST http://localhost:8000/api/v1/auth/register
+Content-Type: application/json
+Accept: application/json
+
+{
+    "name": "John Doe",
+    "name": "John Doe",
+    "email": "john",
+    "password": "password",
+}
