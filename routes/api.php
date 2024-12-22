@@ -9,4 +9,5 @@ Route::get('/user', function (Request $request) {
 
 Route::prefix("/v1/auth")->group(function () {
     Route::post("/register", [\App\Http\Controllers\Api\AuthController::class, "register"]);
+    Route::post("/login", [\App\Http\Controllers\Api\AuthController::class, "login"]);
 });
