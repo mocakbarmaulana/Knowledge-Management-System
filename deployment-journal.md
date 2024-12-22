@@ -2,14 +2,14 @@
 
 ## 22 December 2024
 ### Done Today:
-- Setup initial Laravel project
-- Setup dbdiagram for schema database
-- Created database migrations for users table and article tables
+- Setup initial Laravel project [x]
+- Setup dbdiagram for schema database [x]
+- Created database migrations for users table and article tables [x]
 
 ### Problems & Solutions:
-Problem: CORS issues when testing API
-Solution: Added proper middleware configuration
-Reference: [Laravel CORS docs]
+Problem: 
+Solution: 
+Reference: 
 
 ### Next Tasks:
 - Implement article endpoints
