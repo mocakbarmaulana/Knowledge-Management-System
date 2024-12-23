@@ -3,10 +3,11 @@
 namespace App\Traits;
 
 use App\Dto\DefaultResponseDto;
+use Illuminate\Http\JsonResponse;
 
 trait JsonResponseTrait
 {
-    private function successResponse(string $message, array $data = []): DefaultResponseDto
+    private function successResponseDto(string $message, array $data = []): DefaultResponseDto
     {
         return new DefaultResponseDto(
             status: true,
@@ -15,11 +16,23 @@ trait JsonResponseTrait
         );
     }
 
-    private function errorResponse(string $message): DefaultResponseDto
+    private function errorResponseDto(string $message): DefaultResponseDto
     {
         return new DefaultResponseDto(
             status: false,
             message: $message
         );
+    }
+
+    /**
+     * Build JSON response
+     *
+     * @param mixed $data
+     * @param int $statusCode
+     * @return JsonResponse
+     */
+    private function buildResponse(mixed $data, int $statusCode): JsonResponse
+    {
+        return response()->json($data, $statusCode);
     }
 }

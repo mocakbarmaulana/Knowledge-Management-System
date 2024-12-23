@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
-class AuthServices
+class AuthServices implements \App\Contracts\Auth\AuthServiceInterface
 {
     use JsonResponseTrait;
 
@@ -37,7 +37,7 @@ class AuthServices
 
             DB::commit();
 
-            return $this->successResponse(
+            return $this->successResponseDto(
                 'User registered successfully',
                 [
                     'user' => $user,
@@ -51,7 +51,7 @@ class AuthServices
 
             DB::rollBack();
 
-            return $this->errorResponse("Failed to register user | {$e->getMessage()}");
+            return $this->errorResponseDto("Failed to register user | {$e->getMessage()}");
         } catch (\Exception $e) {
             report($e);
 
@@ -59,7 +59,7 @@ class AuthServices
 
             DB::rollBack();
 
-            return $this->errorResponse("Failed to register user | {$e->getMessage()}");
+            return $this->errorResponseDto("Failed to register user | {$e->getMessage()}");
         }
     }
 
@@ -75,12 +75,12 @@ class AuthServices
             $user = User::where('email', $payload->email)->first();
 
             if (!$user || !Hash::check($payload->password, $user->password)) {
-                return $this->errorResponse('Invalid credentials');
+                return $this->errorResponseDto('Invalid credentials');
             }
 
             $token = $this->generateToken($user);
 
-            return $this->successResponse(
+            return $this->successResponseDto(
                 'User logged in successfully',
                 [
                     'user' => $user,
@@ -92,7 +92,7 @@ class AuthServices
 
             Log::error('Unexpected error during login: ' . $e->getMessage());
 
-            return $this->errorResponse("Failed to login | {$e->getMessage()}");
+            return $this->errorResponseDto("Failed to login | {$e->getMessage()}");
         }
     }
 

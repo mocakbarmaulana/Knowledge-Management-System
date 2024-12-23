@@ -5,19 +5,32 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Auth\LoginRequest;
 use App\Http\Requests\Auth\RegisterRequest;
-use App\Services\AuthServices;
+use App\Traits\JsonResponseTrait;
 use Illuminate\Http\JsonResponse;
-use Illuminate\Http\Request;
 
+/**
+ * Class AuthController
+ *
+ * @group Auth
+ * @package App\Http\Controllers\Api
+ */
 class AuthController extends Controller
 {
+    use JsonResponseTrait;
+
     public function __construct(
-        private AuthServices $authServices,
+        private readonly \App\Contracts\Auth\AuthServiceInterface $authServices
     )
     {
 
     }
 
+    /**
+     * Register a new user
+     *
+     * @param RegisterRequest $registerRequest
+     * @return JsonResponse
+     */
     public function register(RegisterRequest $registerRequest): JsonResponse
     {
         $payload = new \App\Dto\Auth\AuthRegisterDto(
@@ -28,9 +41,15 @@ class AuthController extends Controller
 
         $result = $this->authServices->register($payload);
 
-        return response()->json($result, $result->status ? 201 : 400);
+        return $this->buildResponse($result, $result->status ? 201 : 400);
     }
 
+    /**
+     * Login a user
+     *
+     * @param LoginRequest $loginRequest
+     * @return JsonResponse
+     */
     public function login(LoginRequest $loginRequest): JsonResponse
     {
         $payload = new \App\Dto\Auth\AuthLoginDto(
@@ -40,6 +59,6 @@ class AuthController extends Controller
 
         $result = $this->authServices->login($payload);
 
-        return response()->json($result, $result->status ? 200 : 401);
+        return $this->buildResponse($result, $result->status ? 200 : 401);
     }
 }
