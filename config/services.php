@@ -35,4 +35,8 @@ return [
         ],
     ],
 
+    'auth' => [
+        'token' => env('AUTH_TOKEN', 'auth_token'),
+    ],
+
 ];
