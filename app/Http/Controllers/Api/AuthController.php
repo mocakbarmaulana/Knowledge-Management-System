@@ -19,7 +19,7 @@ class AuthController extends Controller
     use JsonResponseTrait;
 
     public function __construct(
-        private readonly \App\Contracts\Auth\AuthServiceInterface $authServices
+        private readonly \App\Services\AuthServices $authServices
     )
     {
 
