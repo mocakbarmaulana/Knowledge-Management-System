@@ -44,14 +44,6 @@ class AuthServices implements \App\Contracts\Auth\AuthServiceInterface
                     'token' => $token,
                 ],
             );
-        } catch (QueryException $e) {
-            report($e);
-
-            Log::error('Query error during registration: ' . $e->getMessage());
-
-            DB::rollBack();
-
-            return $this->errorResponseDto("Failed to register user | {$e->getMessage()}");
         } catch (\Exception $e) {
             report($e);
 

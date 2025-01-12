@@ -45,4 +45,14 @@ Mood: 10/10
 
 ## 12 Januari 2025
 ### Done Today
-- M
+- Make unit test 100% AuthService.php [✅]
+
+### Problems & Solutions:
+Problem:
+1. Mock return with same class, ex: user model in register function authservice
+
+Solution:
+1. using return in mock with function. ex: andReturnUsing
+
+Time spent: 1 hour
+Mood: 10/10
