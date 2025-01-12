@@ -2,12 +2,12 @@
 
 ## 22 December 2024
 ### Done Today:
-- Setup initial Laravel project [x]
-- Setup dbdiagram for schema database [x]
-- Created database migrations for users table and article tables [x]
-- Run unit testing [x]
-- Add Laravel sanctum for authentication [x]
-- add api endpoint register [x]
+- Setup initial Laravel project [✅]
+- Setup dbdiagram for schema database [✅]
+- Created database migrations for users table and article tables [✅]
+- Run unit testing [✅]
+- Add Laravel sanctum for authentication [✅]
+- add api endpoint register [✅]
 
 ### Problems & Solutions:
 Problem: 
@@ -30,8 +30,8 @@ Mood: 8/10
 
 ## 11 Januari 2025
 ### Done Today:
-- Make unit test 100% coverage AuthController.php [x]
-- Make unit test 100% coverage AuthService.php []
+- Make unit test 100% coverage AuthController.php [✅]
+- Make unit test 100% coverage AuthService.php [❎]
 
 ### Problems & Solutions:
 Problem:
@@ -42,3 +42,7 @@ Solution:
 
 Time spent: 1 hour
 Mood: 10/10
+
+## 12 Januari 2025
+### Done Today
+- M
