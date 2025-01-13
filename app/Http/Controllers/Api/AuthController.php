@@ -12,6 +12,9 @@ use Illuminate\Http\JsonResponse;
  * Class AuthController
  *
  * @group Auth
+ *
+ * APIs for managing authentication
+ *
  * @package App\Http\Controllers\Api
  */
 class AuthController extends Controller
