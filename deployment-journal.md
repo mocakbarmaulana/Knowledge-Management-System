@@ -56,3 +56,13 @@ Solution:
 
 Time spent: 1 hour
 Mood: 10/10
+
+### 13 Januari 2025
+### Done Today
+- Make documentation using scribe [✅]
+
+### Problems & Solution:
+- there is no problem yet
+
+Time spent: 1 hour
+Mood: 7/10
