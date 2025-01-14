@@ -11,8 +11,8 @@ describe('AuthController_Register', function () {
             'token' => 'token',
         ];
 
-        /**  @var \App\Services\AuthServices|\Mockery\MockInterface $authServices */
-        $authServices = Mockery::mock(\App\Services\AuthServices::class);
+        /**  @var \App\Services\AuthService|\Mockery\MockInterface $authServices */
+        $authServices = Mockery::mock(\App\Services\AuthService::class);
         $authServices->shouldReceive('register')->once()->andReturn(
             new \App\Dto\DefaultResponseDto(
                 status: true,
@@ -51,8 +51,8 @@ describe('AuthController_Login', function () {
             'token' => 'token',
         ];
 
-        /**  @var \App\Services\AuthServices|\Mockery\MockInterface $authServices */
-        $authServices = Mockery::mock(\App\Services\AuthServices::class);
+        /**  @var \App\Services\AuthService|\Mockery\MockInterface $authServices */
+        $authServices = Mockery::mock(\App\Services\AuthService::class);
         $authServices->shouldReceive('login')->once()->andReturn(
             new \App\Dto\DefaultResponseDto(
                 status: true,

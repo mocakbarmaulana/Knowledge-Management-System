@@ -82,3 +82,15 @@ Mood: 7/10
 
 Time spent: 1 hour
 Mood: 10/10
+
+## 14 Januari 2025
+- Add unit test article dto, controller, service
+
+### Problem & Solution
+- make mock with return to model and update
+
+Solution:
+- return mock using andReturnUsing with value mockery model.
+
+Time spent: 1 hour
+Mood: 10/10

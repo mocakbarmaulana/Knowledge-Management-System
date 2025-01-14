@@ -35,7 +35,7 @@ describe('AuthServices_register', function () {
             ->andReturnNull();
         DB::shouldReceive('commit')->once()->andReturnNull();
 
-        $authServices = new \App\Services\AuthServices();
+        $authServices = new \App\Services\AuthService();
         $result = $authServices->register($payload);
 
         expect($result)->toBeInstanceOf(\App\Dto\DefaultResponseDto::class);
@@ -58,7 +58,7 @@ describe('AuthServices_register', function () {
             ->shouldReceive('create')
             ->andThrow(new \Exception('An error occurred'));
 
-        $authServices = new \App\Services\AuthServices();
+        $authServices = new \App\Services\AuthService();
         $result = $authServices->register($payload);
 
         expect($result)->toBeInstanceOf(\App\Dto\DefaultResponseDto::class);
@@ -91,7 +91,7 @@ describe('AuthServices_login', function () {
                 return $mockUser;
             });
 
-        $authServices = new \App\Services\AuthServices();
+        $authServices = new \App\Services\AuthService();
         $result = $authServices->login($payload);
 
         expect($result)->toBeInstanceOf(\App\Dto\DefaultResponseDto::class);
@@ -110,7 +110,7 @@ describe('AuthServices_login', function () {
             ->once()
             ->andReturnNull();
 
-        $authServices = new \App\Services\AuthServices();
+        $authServices = new \App\Services\AuthService();
         $result = $authServices->login($payload);
 
         expect($result)->toBeInstanceOf(\App\Dto\DefaultResponseDto::class);
@@ -126,7 +126,7 @@ describe('AuthServices_login', function () {
         $mockUserModel->shouldReceive('where->first')
             ->andThrow(new \Exception('An error occurred'));
 
-        $authServices = new \App\Services\AuthServices();
+        $authServices = new \App\Services\AuthService();
         $result = $authServices->login($payload);
 
         expect($result)->toBeInstanceOf(\App\Dto\DefaultResponseDto::class);
