@@ -57,7 +57,7 @@ Solution:
 Time spent: 1 hour
 Mood: 10/10
 
-### 13 Januari 2025
+## 13 Januari 2025
 ### Done Today
 - Make documentation using scribe [✅]
 
@@ -66,3 +66,19 @@ Mood: 10/10
 
 Time spent: 1 hour
 Mood: 7/10
+
+## 14 Januari 2025
+- Add Routing Article [✅]
+- Add Controller Article [✅]
+- Add Service Article [✅]
+- Add Model Article [✅]
+
+### Problem & Solution:
+- there is no problem yet
+
+### Conclusion
+- learning about interface and make service maintanable. 
+- learning about request and dto
+
+Time spent: 1 hour
+Mood: 10/10

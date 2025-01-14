@@ -7,12 +7,11 @@ use App\Dto\Auth\AuthRegisterDto;
 use App\Dto\DefaultResponseDto;
 use App\Models\User;
 use App\Traits\JsonResponseTrait;
-use Illuminate\Database\QueryException;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Log;
 
-class AuthServices implements \App\Contracts\Auth\AuthServiceInterface
+class AuthService implements \App\Contracts\Auth\AuthServiceInterface
 {
     use JsonResponseTrait;
 

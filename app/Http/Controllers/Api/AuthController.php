@@ -22,7 +22,7 @@ class AuthController extends Controller
     use JsonResponseTrait;
 
     public function __construct(
-        private readonly \App\Services\AuthServices $authServices
+        private readonly \App\Services\AuthService $authService
     )
     {
 
@@ -42,7 +42,7 @@ class AuthController extends Controller
             password: $registerRequest->password,
         );
 
-        $result = $this->authServices->register($payload);
+        $result = $this->authService->register($payload);
 
         return $this->buildResponse($result, $result->status ? 201 : 400);
     }
@@ -60,7 +60,7 @@ class AuthController extends Controller
             password: $loginRequest->password,
         );
 
-        $result = $this->authServices->login($payload);
+        $result = $this->authService->login($payload);
 
         return $this->buildResponse($result, $result->status ? 200 : 401);
     }
