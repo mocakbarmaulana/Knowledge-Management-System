@@ -94,3 +94,16 @@ Solution:
 
 Time spent: 1 hour
 Mood: 10/10
+
+## 15 Januari 2025
+- Add Routing categories
+- Add Controller categories
+- Add Service categories
+- Add migration categories
+
+### Problem & solution
+- there is no problem yet
+
+Time spent: 1 hour
+Mood: 6/10
+Reason: cause to boring repeat crud categories like article

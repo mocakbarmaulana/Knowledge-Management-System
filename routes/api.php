@@ -23,6 +23,15 @@ Route::prefix("/v1")->group(function () {
             Route::delete($id, [\App\Http\Controllers\Api\ArticleController::class, "delete"]);
         });
 
+        Route::group(["prefix" => "/categories"], function () {
+            $id = "/{id}";
+            Route::get('/', [\App\Http\Controllers\Api\CategoryController::class, "index"]);
+            Route::post('/', [\App\Http\Controllers\Api\CategoryController::class, "create"]);
+            Route::get($id, [\App\Http\Controllers\Api\CategoryController::class, "show"]);
+            Route::put($id, [\App\Http\Controllers\Api\CategoryController::class, "update"]);
+            Route::delete($id, [\App\Http\Controllers\Api\CategoryController::class, "delete"]);
+        });
+
         Route::post("/auth/logout", [\App\Http\Controllers\Api\AuthController::class, "logout"]);
     });
 });
