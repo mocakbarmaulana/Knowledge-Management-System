@@ -107,3 +107,17 @@ Mood: 10/10
 Time spent: 1 hour
 Mood: 6/10
 Reason: cause to boring repeat crud categories like article
+
+## 16 Januari 2025
+### Done today
+- Add migration tags
+- Add Controller tags
+- Add Service tags
+- Add Routing tags
+
+### Problem & solution
+- theres is no problem yet
+
+Time spent: 1 hour
+Mood: 6/10
+Reason: cause to boring and repeat crud logic.
