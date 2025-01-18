@@ -5,7 +5,7 @@ info:
   version: 1.0.0
 servers:
   -
-    url: 'http://localhost:8000'
+    url: 'http://localhost'
 paths:
   /api/v1/articles:
     get:
@@ -38,17 +38,17 @@ paths:
                 page:
                   type: integer
                   description: ''
-                  example: 5
+                  example: 18
                   nullable: false
                 per_page:
                   type: integer
                   description: ''
-                  example: 13
+                  example: 8
                   nullable: false
                 search:
                   type: string
                   description: ''
-                  example: reiciendis
+                  example: voluptatem
                   nullable: true
               required:
                 - page
@@ -71,17 +71,17 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: quia
+                  example: eos
                   nullable: false
                 content:
                   type: string
                   description: ''
-                  example: dicta
+                  example: ut
                   nullable: false
                 status:
                   type: string
                   description: ''
-                  example: draft
+                  example: published
                   nullable: false
                   enum:
                     - draft
@@ -129,12 +129,12 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: doloremque
+                  example: quis
                   nullable: false
                 content:
                   type: string
                   description: ''
-                  example: dolorem
+                  example: sint
                   nullable: false
                 status:
                   type: string
@@ -161,7 +161,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the article.'
-        example: provident
+        example: blanditiis
         required: true
         schema:
           type: string
@@ -184,22 +184,22 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: jc
+                  example: ecrwssnsmxjijson
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: sterling.dach@example.com
+                  example: dusty99@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: 'zr0<BZMZ;rMFWp[P4q'
+                  example: 'T[)J},cJEk\;J'
                   nullable: false
                 password_confirmation:
                   type: string
                   description: ''
-                  example: nihil
+                  example: quas
                   nullable: false
               required:
                 - name
@@ -226,12 +226,12 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: humberto.mueller@example.org
+                  example: bogisich.weldon@example.com
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: 'I$_Gz"Ex_W'
+                  example: '.%&77fK(:eXp![>-'
                   nullable: false
               required:
                 - email
@@ -268,17 +268,17 @@ paths:
                 page:
                   type: integer
                   description: ''
-                  example: 4
+                  example: 11
                   nullable: false
                 per_page:
                   type: integer
                   description: ''
-                  example: 1
+                  example: 19
                   nullable: false
                 search:
                   type: string
                   description: ''
-                  example: animi
+                  example: placeat
                   nullable: true
               required:
                 - page
@@ -301,12 +301,12 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: eceyqkxftddzldbnso
+                  example: svnzjoxgvmaesfchpv
                   nullable: false
                 description:
                   type: string
                   description: ''
-                  example: 'Omnis vel sint aperiam numquam et nobis quia.'
+                  example: 'Praesentium voluptates accusantium quos magni.'
                   nullable: true
               required:
                 - name
@@ -349,12 +349,12 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: yxzpxautheiuoiqzs
+                  example: iftixhmlbnvgj
                   nullable: false
                 description:
                   type: string
                   description: ''
-                  example: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
+                  example: 'Quod quia omnis sunt similique debitis qui libero qui.'
                   nullable: true
               required:
                 - name
@@ -371,7 +371,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the category.'
-        example: itaque
+        example: cupiditate
         required: true
         schema:
           type: string
@@ -428,17 +428,17 @@ paths:
                 page:
                   type: integer
                   description: ''
-                  example: 7
+                  example: 9
                   nullable: false
                 per_page:
                   type: integer
                   description: ''
-                  example: 3
+                  example: 6
                   nullable: false
                 search:
                   type: string
                   description: ''
-                  example: totam
+                  example: necessitatibus
                   nullable: true
               required:
                 - page
@@ -462,12 +462,12 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: quidem
+                  example: odit
                   nullable: false
                 description:
                   type: string
                   description: ''
-                  example: 'Illum molestiae est labore voluptas deleniti officiis.'
+                  example: 'Quia qui distinctio at.'
                   nullable: true
               required:
                 - name
@@ -512,12 +512,12 @@ paths:
                 name:
                   type: string
                   description: ''
-                  example: est
+                  example: quidem
                   nullable: false
                 description:
                   type: string
                   description: ''
-                  example: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+                  example: 'In tempore repellat eaque deserunt quos.'
                   nullable: true
               required:
                 - name
@@ -527,7 +527,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the tag.'
-        example: maxime
+        example: enim
         required: true
         schema:
           type: string

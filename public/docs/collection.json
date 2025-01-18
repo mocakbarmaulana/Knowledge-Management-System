@@ -5,12 +5,12 @@
             "key": "baseUrl",
             "type": "string",
             "name": "string",
-            "value": "http:\/\/localhost:8000"
+            "value": "http:\/\/localhost"
         }
     ],
     "info": {
         "name": "Knowledge Management System API",
-        "_postman_id": "a8713d5e-5f68-4a4b-a080-d88a9c231d07",
+        "_postman_id": "cd746862-cddb-4ee3-bcef-ce7fbc3fa487",
         "description": "This documentation aims to provide all the information you need to work with our API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":5,\"per_page\":13,\"search\":\"reiciendis\"}"
+                            "raw": "{\"page\":18,\"per_page\":8,\"search\":\"voluptatem\"}"
                         },
                         "description": ""
                     },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"quia\",\"content\":\"dicta\",\"status\":\"draft\"}"
+                            "raw": "{\"title\":\"eos\",\"content\":\"ut\",\"status\":\"published\"}"
                         },
                         "description": ""
                     },
@@ -107,7 +107,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "provident",
+                                    "value": "blanditiis",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -160,7 +160,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "consequuntur",
+                                    "value": "nihil",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -178,7 +178,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"doloremque\",\"content\":\"dolorem\",\"status\":\"draft\"}"
+                            "raw": "{\"title\":\"quis\",\"content\":\"sint\",\"status\":\"draft\"}"
                         },
                         "description": ""
                     },
@@ -196,7 +196,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "qui",
+                                    "value": "iste",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -245,7 +245,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"jc\",\"email\":\"sterling.dach@example.com\",\"password\":\"zr0<BZMZ;rMFWp[P4q\",\"password_confirmation\":\"nihil\"}"
+                            "raw": "{\"name\":\"ecrwssnsmxjijson\",\"email\":\"dusty99@example.com\",\"password\":\"T[)J},cJEk\\\\;J\",\"password_confirmation\":\"quas\"}"
                         },
                         "description": "",
                         "auth": {
@@ -276,7 +276,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"humberto.mueller@example.org\",\"password\":\"I$_Gz\\\"Ex_W\"}"
+                            "raw": "{\"email\":\"bogisich.weldon@example.com\",\"password\":\".%&77fK(:eXp![>-\"}"
                         },
                         "description": "",
                         "auth": {
@@ -313,7 +313,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":4,\"per_page\":1,\"search\":\"animi\"}"
+                            "raw": "{\"page\":11,\"per_page\":19,\"search\":\"placeat\"}"
                         },
                         "description": ""
                     },
@@ -361,7 +361,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"eceyqkxftddzldbnso\",\"description\":\"Omnis vel sint aperiam numquam et nobis quia.\"}"
+                            "raw": "{\"name\":\"svnzjoxgvmaesfchpv\",\"description\":\"Praesentium voluptates accusantium quos magni.\"}"
                         },
                         "description": ""
                     },
@@ -379,7 +379,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "itaque",
+                                    "value": "cupiditate",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -432,7 +432,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "atque",
+                                    "value": "consequatur",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -450,7 +450,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"yxzpxautheiuoiqzs\",\"description\":\"Voluptate dolore non sed necessitatibus exercitationem odit sit in.\"}"
+                            "raw": "{\"name\":\"iftixhmlbnvgj\",\"description\":\"Quod quia omnis sunt similique debitis qui libero qui.\"}"
                         },
                         "description": ""
                     },
@@ -468,7 +468,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "in",
                                     "description": "The ID of the category."
                                 }
                             ]
@@ -565,7 +565,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":7,\"per_page\":3,\"search\":\"totam\"}"
+                            "raw": "{\"page\":9,\"per_page\":6,\"search\":\"necessitatibus\"}"
                         },
                         "description": "",
                         "auth": {
@@ -616,7 +616,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"quidem\",\"description\":\"Illum molestiae est labore voluptas deleniti officiis.\"}"
+                            "raw": "{\"name\":\"odit\",\"description\":\"Quia qui distinctio at.\"}"
                         },
                         "description": "",
                         "auth": {
@@ -637,7 +637,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "maxime",
+                                    "value": "enim",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -693,7 +693,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "deleniti",
+                                    "value": "cum",
                                     "description": "The ID of the tag."
                                 }
                             ]
@@ -711,7 +711,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"est\",\"description\":\"Consectetur necessitatibus dolore suscipit totam repudiandae.\"}"
+                            "raw": "{\"name\":\"quidem\",\"description\":\"In tempore repellat eaque deserunt quos.\"}"
                         },
                         "description": "",
                         "auth": {

@@ -30,7 +30,7 @@ endpoints:
         name: page
         description: ''
         required: true
-        example: 5
+        example: 18
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -40,7 +40,7 @@ endpoints:
         name: per_page
         description: ''
         required: true
-        example: 13
+        example: 8
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -50,16 +50,16 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: reiciendis
+        example: voluptatem
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 5
-      per_page: 13
-      search: reiciendis
+      page: 18
+      per_page: 8
+      search: voluptatem
     fileParameters: []
     responses:
       -
@@ -104,7 +104,7 @@ endpoints:
         name: title
         description: ''
         required: true
-        example: quia
+        example: eos
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -114,7 +114,7 @@ endpoints:
         name: content
         description: ''
         required: true
-        example: dicta
+        example: ut
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -124,7 +124,7 @@ endpoints:
         name: status
         description: ''
         required: true
-        example: draft
+        example: published
         type: string
         enumValues:
           - draft
@@ -133,9 +133,9 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: quia
-      content: dicta
-      status: draft
+      title: eos
+      content: ut
+      status: published
     fileParameters: []
     responses: []
     responseFields: []
@@ -167,14 +167,14 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: provident
+        example: blanditiis
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: provident
+      id: blanditiis
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -219,14 +219,14 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: consequuntur
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: consequuntur
+      id: nihil
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -234,7 +234,7 @@ endpoints:
         name: title
         description: ''
         required: true
-        example: doloremque
+        example: quis
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -244,7 +244,7 @@ endpoints:
         name: content
         description: ''
         required: true
-        example: dolorem
+        example: sint
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -263,8 +263,8 @@ endpoints:
         nullable: false
         custom: []
     cleanBodyParameters:
-      title: doloremque
-      content: dolorem
+      title: quis
+      content: sint
       status: draft
     fileParameters: []
     responses: []
@@ -297,14 +297,14 @@ endpoints:
         name: id
         description: 'The ID of the article.'
         required: true
-        example: qui
+        example: iste
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: qui
+      id: iste
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

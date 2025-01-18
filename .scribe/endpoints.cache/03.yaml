@@ -32,7 +32,7 @@ endpoints:
         name: page
         description: ''
         required: true
-        example: 4
+        example: 11
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: per_page
         description: ''
         required: true
-        example: 1
+        example: 19
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -52,16 +52,16 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: animi
+        example: placeat
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 4
-      per_page: 1
-      search: animi
+      page: 11
+      per_page: 19
+      search: placeat
     fileParameters: []
     responses:
       -
@@ -106,7 +106,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: eceyqkxftddzldbnso
+        example: svnzjoxgvmaesfchpv
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -116,15 +116,15 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Omnis vel sint aperiam numquam et nobis quia.'
+        example: 'Praesentium voluptates accusantium quos magni.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: eceyqkxftddzldbnso
-      description: 'Omnis vel sint aperiam numquam et nobis quia.'
+      name: svnzjoxgvmaesfchpv
+      description: 'Praesentium voluptates accusantium quos magni.'
     fileParameters: []
     responses: []
     responseFields: []
@@ -156,14 +156,14 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: itaque
+        example: cupiditate
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: itaque
+      id: cupiditate
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -208,14 +208,14 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: atque
+        example: consequatur
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: atque
+      id: consequatur
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -223,7 +223,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: yxzpxautheiuoiqzs
+        example: iftixhmlbnvgj
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -233,15 +233,15 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
+        example: 'Quod quia omnis sunt similique debitis qui libero qui.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: yxzpxautheiuoiqzs
-      description: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
+      name: iftixhmlbnvgj
+      description: 'Quod quia omnis sunt similique debitis qui libero qui.'
     fileParameters: []
     responses: []
     responseFields: []
@@ -273,14 +273,14 @@ endpoints:
         name: id
         description: 'The ID of the category.'
         required: true
-        example: et
+        example: in
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: et
+      id: in
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

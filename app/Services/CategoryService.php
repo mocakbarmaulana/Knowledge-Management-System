@@ -36,7 +36,7 @@ class CategoryService implements CategoryServiceInterface
         try {
             $categories = $this->category->query()
                 ->where('name', 'like', '%' . $payload->search . '%')
-                ->orderBy('name', 'desc')
+                ->orderBy('name', 'asc')
                 ->paginate($payload->perPage, page: $payload->page);
 
             $response = [
@@ -50,17 +50,18 @@ class CategoryService implements CategoryServiceInterface
                 ]
             ];
 
+
             return $this->successResponseDto(
-                printf(MessageEnum::SUCCESS_MESSAGE, 'fetch categories'),
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'fetch categories'),
                 $response
             );
 
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(printf(MessageEnum::ERROR_EXECPTION, 'fetching categories', $e->getMessage()));
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'fetching categories', $e->getMessage()));
 
-            return $this->errorResponseDto(printf(MessageEnum::FAILED_MESSAGE, 'fetch categories', $e->getMessage()));
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'fetch categories', $e->getMessage()));
         }
     }
 
@@ -75,6 +76,12 @@ class CategoryService implements CategoryServiceInterface
         try {
             DB::beginTransaction();
 
+            $exists = $this->category->where('name', $payload->name)->exists();
+
+            if ($exists) {
+                return $this->errorResponseDto('Category already exists');
+            }
+
             $category = $this->category->create([
                 'name' => $payload->name,
                 'description' => $payload->description,
@@ -83,18 +90,18 @@ class CategoryService implements CategoryServiceInterface
             DB::commit();
 
             return $this->successResponseDto(
-                printf(MessageEnum::SUCCESS_MESSAGE, 'create category'),
-                $category
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'create category'),
+                $category->toArray()
             );
 
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(printf(MessageEnum::ERROR_EXECPTION, 'creating category', $e->getMessage()));
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'creating category', $e->getMessage()));
 
             DB::rollBack();
 
-            return $this->errorResponseDto(printf(MessageEnum::FAILED_MESSAGE, 'create category', $e->getMessage()));
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'create category', $e->getMessage()));
         }
     }
 
@@ -114,16 +121,16 @@ class CategoryService implements CategoryServiceInterface
             }
 
             return $this->successResponseDto(
-                printf(MessageEnum::SUCCESS_MESSAGE, 'fetch category'),
-                $category
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'fetch category'),
+                $category->toArray()
             );
 
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(printf(MessageEnum::ERROR_EXECPTION, 'fetching category', $e->getMessage()));
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'fetching category', $e->getMessage()));
 
-            return $this->errorResponseDto(printf(MessageEnum::FAILED_MESSAGE, 'fetch category', $e->getMessage()));
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'fetch category', $e->getMessage()));
         }
     }
 
@@ -145,6 +152,12 @@ class CategoryService implements CategoryServiceInterface
                 return $this->errorResponseDto($this->notFoundMessage);
             }
 
+            $exists = $this->category->where('name', $payload->name)->where('id', '!=', $id)->exists();
+
+            if ($exists) {
+                return $this->errorResponseDto('Category name already exists');
+            }
+
             $category->update([
                 'name' => $payload->name,
                 'description' => $payload->description,
@@ -153,18 +166,18 @@ class CategoryService implements CategoryServiceInterface
             DB::commit();
 
             return $this->successResponseDto(
-                printf(MessageEnum::SUCCESS_MESSAGE, 'update category'),
-                $category
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'update category'),
+                $category->toArray()
             );
 
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(printf(MessageEnum::ERROR_EXECPTION, 'updating category', $e->getMessage()));
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'updating category', $e->getMessage()));
 
             DB::rollBack();
 
-            return $this->errorResponseDto(printf(MessageEnum::FAILED_MESSAGE, 'update category', $e->getMessage()));
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'update category', $e->getMessage()));
         }
     }
 
@@ -190,18 +203,17 @@ class CategoryService implements CategoryServiceInterface
             DB::commit();
 
             return $this->successResponseDto(
-                printf(MessageEnum::SUCCESS_MESSAGE, 'delete category'),
-                $category
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'delete category'),
             );
 
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(printf(MessageEnum::ERROR_EXECPTION, 'deleting category', $e->getMessage()));
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'deleting category', $e->getMessage()));
 
             DB::rollBack();
 
-            return $this->errorResponseDto(printf(MessageEnum::FAILED_MESSAGE, 'delete category', $e->getMessage()));
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'delete category', $e->getMessage()));
         }
     }
 }

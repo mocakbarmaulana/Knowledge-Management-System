@@ -67,7 +67,7 @@ endpoints:
         name: page
         description: ''
         required: true
-        example: 7
+        example: 9
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -77,7 +77,7 @@ endpoints:
         name: per_page
         description: ''
         required: true
-        example: 3
+        example: 6
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -87,16 +87,16 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: totam
+        example: necessitatibus
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 7
-      per_page: 3
-      search: totam
+      page: 9
+      per_page: 6
+      search: necessitatibus
     fileParameters: []
     responses:
       -
@@ -139,7 +139,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: quidem
+        example: odit
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -149,15 +149,15 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Illum molestiae est labore voluptas deleniti officiis.'
+        example: 'Quia qui distinctio at.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: quidem
-      description: 'Illum molestiae est labore voluptas deleniti officiis.'
+      name: odit
+      description: 'Quia qui distinctio at.'
     fileParameters: []
     responses: []
     responseFields: []
@@ -187,14 +187,14 @@ endpoints:
         name: id
         description: 'The ID of the tag.'
         required: true
-        example: maxime
+        example: enim
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: maxime
+      id: enim
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -237,14 +237,14 @@ endpoints:
         name: id
         description: 'The ID of the tag.'
         required: true
-        example: deleniti
+        example: cum
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: deleniti
+      id: cum
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -252,7 +252,7 @@ endpoints:
         name: name
         description: ''
         required: true
-        example: est
+        example: quidem
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -262,15 +262,15 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+        example: 'In tempore repellat eaque deserunt quos.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: est
-      description: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+      name: quidem
+      description: 'In tempore repellat eaque deserunt quos.'
     fileParameters: []
     responses: []
     responseFields: []

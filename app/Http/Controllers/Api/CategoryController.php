@@ -10,6 +10,7 @@ use App\Http\Requests\Category\CategoryGetRequest;
 use App\Services\CategoryService;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 
 /**
  * Class CategoryController
@@ -60,7 +61,7 @@ class CategoryController extends Controller
     public function create(CategoryCreateRequest $request): JsonResponse
     {
         $payload = new CategoryCreateDto(
-            name: $request->input('name'),
+            name: Str::lower($request->input('name')),
             description: $request->input('description'),
         );
 
@@ -92,7 +93,7 @@ class CategoryController extends Controller
     public function update(CategoryCreateRequest $request, int $id): JsonResponse
     {
         $payload = new CategoryCreateDto(
-            name: $request->input('name'),
+            name: Str::lower($request->input('name')),
             description: $request->input('description'),
         );
 
@@ -111,7 +112,7 @@ class CategoryController extends Controller
     {
         $result = $this->categoryService->deleteCategory($id);
 
-        return $this->buildResponse($result, $result->status ? 204 : 400);
+        return $this->buildResponse($result, $result->status ? 200 : 400);
     }
 
 }
