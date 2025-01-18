@@ -32,7 +32,7 @@ endpoints:
         name: name
         description: 'Must not be greater than 255 characters.'
         required: true
-        example: qsziywaunolcunptkuyxbvg
+        example: jc
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -42,7 +42,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address. Must not be greater than 255 characters.'
         required: true
-        example: zaufderhar@example.org
+        example: sterling.dach@example.com
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -52,7 +52,7 @@ endpoints:
         name: password
         description: 'Must be at least 8 characters.'
         required: true
-        example: 'v),9eaYH*<D{ZQB^m*'
+        example: 'zr0<BZMZ;rMFWp[P4q'
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -62,17 +62,17 @@ endpoints:
         name: password_confirmation
         description: ''
         required: true
-        example: aut
+        example: nihil
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      name: qsziywaunolcunptkuyxbvg
-      email: zaufderhar@example.org
-      password: 'v),9eaYH*<D{ZQB^m*'
-      password_confirmation: aut
+      name: jc
+      email: sterling.dach@example.com
+      password: 'zr0<BZMZ;rMFWp[P4q'
+      password_confirmation: nihil
     fileParameters: []
     responses: []
     responseFields: []
@@ -108,7 +108,7 @@ endpoints:
         name: email
         description: 'Must be a valid email address.'
         required: true
-        example: sam.smitham@example.com
+        example: humberto.mueller@example.org
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -118,15 +118,15 @@ endpoints:
         name: password
         description: ''
         required: true
-        example: ')=e!f`IhX`9TAeU=8,G-'
+        example: 'I$_Gz"Ex_W'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanBodyParameters:
-      email: sam.smitham@example.com
-      password: ')=e!f`IhX`9TAeU=8,G-'
+      email: humberto.mueller@example.org
+      password: 'I$_Gz"Ex_W'
     fileParameters: []
     responses: []
     responseFields: []

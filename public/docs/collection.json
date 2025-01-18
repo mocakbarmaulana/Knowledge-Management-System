@@ -10,7 +10,7 @@
     ],
     "info": {
         "name": "Knowledge Management System API",
-        "_postman_id": "e50a228c-b024-456c-b01d-c6a5fc664f55",
+        "_postman_id": "a8713d5e-5f68-4a4b-a080-d88a9c231d07",
         "description": "This documentation aims to provide all the information you need to work with our API.",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.1.0\/collection.json"
     },
@@ -41,7 +41,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"page\":12,\"per_page\":15,\"search\":\"ut\"}"
+                            "raw": "{\"page\":5,\"per_page\":13,\"search\":\"reiciendis\"}"
                         },
                         "description": ""
                     },
@@ -89,7 +89,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"autem\",\"content\":\"in\",\"status\":\"draft\"}"
+                            "raw": "{\"title\":\"quia\",\"content\":\"dicta\",\"status\":\"draft\"}"
                         },
                         "description": ""
                     },
@@ -107,7 +107,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "dolores",
+                                    "value": "provident",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -160,7 +160,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "est",
+                                    "value": "consequuntur",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -178,7 +178,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"title\":\"repellendus\",\"content\":\"et\",\"status\":\"published\"}"
+                            "raw": "{\"title\":\"doloremque\",\"content\":\"dolorem\",\"status\":\"draft\"}"
                         },
                         "description": ""
                     },
@@ -196,7 +196,7 @@
                                 {
                                     "id": "id",
                                     "key": "id",
-                                    "value": "et",
+                                    "value": "qui",
                                     "description": "The ID of the article."
                                 }
                             ]
@@ -245,7 +245,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"name\":\"qsziywaunolcunptkuyxbvg\",\"email\":\"zaufderhar@example.org\",\"password\":\"v),9eaYH*<D{ZQB^m*\",\"password_confirmation\":\"aut\"}"
+                            "raw": "{\"name\":\"jc\",\"email\":\"sterling.dach@example.com\",\"password\":\"zr0<BZMZ;rMFWp[P4q\",\"password_confirmation\":\"nihil\"}"
                         },
                         "description": "",
                         "auth": {
@@ -276,12 +276,216 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\"email\":\"sam.smitham@example.com\",\"password\":\")=e!f`IhX`9TAeU=8,G-\"}"
+                            "raw": "{\"email\":\"humberto.mueller@example.org\",\"password\":\"I$_Gz\\\"Ex_W\"}"
                         },
                         "description": "",
                         "auth": {
                             "type": "noauth"
                         }
+                    },
+                    "response": []
+                }
+            ]
+        },
+        {
+            "name": "Category",
+            "description": "\nAPIs for managing categories",
+            "item": [
+                {
+                    "name": "Get a list of categories",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"page\":4,\"per_page\":1,\"search\":\"animi\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"eceyqkxftddzldbnso\",\"description\":\"Omnis vel sint aperiam numquam et nobis quia.\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Get a single category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "itaque",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "atque",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"yxzpxautheiuoiqzs\",\"description\":\"Voluptate dolore non sed necessitatibus exercitationem odit sit in.\"}"
+                        },
+                        "description": ""
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Delete a category",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/categories\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/categories\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "et",
+                                    "description": "The ID of the category."
+                                }
+                            ]
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": ""
                     },
                     "response": []
                 }
@@ -338,6 +542,183 @@
                             "name": ""
                         }
                     ]
+                },
+                {
+                    "name": "Get a list of tags",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags"
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"page\":7,\"per_page\":3,\"search\":\"totam\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Create a new tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags"
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"quidem\",\"description\":\"Illum molestiae est labore voluptas deleniti officiis.\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
+                },
+                {
+                    "name": "Show a tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "maxime",
+                                    "description": "The ID of the tag."
+                                }
+                            ]
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": null,
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": [
+                        {
+                            "header": [
+                                {
+                                    "key": "cache-control",
+                                    "value": "no-cache, private"
+                                },
+                                {
+                                    "key": "content-type",
+                                    "value": "application\/json"
+                                },
+                                {
+                                    "key": "access-control-allow-origin",
+                                    "value": "*"
+                                }
+                            ],
+                            "code": 401,
+                            "body": "{\"message\":\"Unauthenticated.\"}",
+                            "name": ""
+                        }
+                    ]
+                },
+                {
+                    "name": "Update a tag",
+                    "request": {
+                        "url": {
+                            "host": "{{baseUrl}}",
+                            "path": "api\/v1\/tags\/:id",
+                            "query": [],
+                            "raw": "{{baseUrl}}\/api\/v1\/tags\/:id",
+                            "variable": [
+                                {
+                                    "id": "id",
+                                    "key": "id",
+                                    "value": "deleniti",
+                                    "description": "The ID of the tag."
+                                }
+                            ]
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\"name\":\"est\",\"description\":\"Consectetur necessitatibus dolore suscipit totam repudiandae.\"}"
+                        },
+                        "description": "",
+                        "auth": {
+                            "type": "noauth"
+                        }
+                    },
+                    "response": []
                 }
             ]
         }

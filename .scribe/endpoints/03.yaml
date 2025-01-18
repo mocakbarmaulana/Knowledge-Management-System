@@ -1,57 +1,22 @@
-name: Endpoints
-description: ''
+name: Category
+description: |-
+
+  APIs for managing categories
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/user
+    uri: api/v1/categories
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Category
+      groupDescription: |-
+
+        APIs for managing categories
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Get a list of categories'
       description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 401
-        content: '{"message":"Unauthenticated."}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/tags
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Get a list of tags'
-      description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -65,7 +30,7 @@ endpoints:
         name: page
         description: ''
         required: true
-        example: 7
+        example: 4
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -75,7 +40,7 @@ endpoints:
         name: per_page
         description: ''
         required: true
-        example: 3
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
@@ -85,16 +50,16 @@ endpoints:
         name: search
         description: ''
         required: false
-        example: totam
+        example: animi
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      page: 7
-      per_page: 3
-      search: totam
+      page: 4
+      per_page: 1
+      search: animi
     fileParameters: []
     responses:
       -
@@ -115,15 +80,17 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/tags
+    uri: api/v1/categories
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Category
+      groupDescription: |-
+
+        APIs for managing categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Create a new tag'
+      title: 'Create a new category'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -135,9 +102,9 @@ endpoints:
     bodyParameters:
       name:
         name: name
-        description: ''
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: quidem
+        example: eceyqkxftddzldbnso
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -147,15 +114,15 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Illum molestiae est labore voluptas deleniti officiis.'
+        example: 'Omnis vel sint aperiam numquam et nobis quia.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: quidem
-      description: 'Illum molestiae est labore voluptas deleniti officiis.'
+      name: eceyqkxftddzldbnso
+      description: 'Omnis vel sint aperiam numquam et nobis quia.'
     fileParameters: []
     responses: []
     responseFields: []
@@ -167,15 +134,17 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/tags/{id}'
+    uri: 'api/v1/categories/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Category
+      groupDescription: |-
+
+        APIs for managing categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Show a tag'
+      title: 'Get a single category'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -183,16 +152,16 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the tag.'
+        description: 'The ID of the category.'
         required: true
-        example: maxime
+        example: itaque
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: maxime
+      id: itaque
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -217,15 +186,17 @@ endpoints:
   -
     httpMethods:
       - PUT
-    uri: 'api/v1/tags/{id}'
+    uri: 'api/v1/categories/{id}'
     metadata:
-      groupName: Endpoints
-      groupDescription: ''
+      groupName: Category
+      groupDescription: |-
+
+        APIs for managing categories
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update a tag'
+      title: 'Update a category'
       description: ''
-      authenticated: false
+      authenticated: true
       custom: []
     headers:
       Content-Type: application/json
@@ -233,24 +204,24 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the tag.'
+        description: 'The ID of the category.'
         required: true
-        example: deleniti
+        example: atque
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         custom: []
     cleanUrlParameters:
-      id: deleniti
+      id: atque
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
       name:
         name: name
-        description: ''
+        description: 'Must not be greater than 255 characters.'
         required: true
-        example: est
+        example: yxzpxautheiuoiqzs
         type: string
         enumValues: []
         exampleWasSpecified: false
@@ -260,15 +231,58 @@ endpoints:
         name: description
         description: ''
         required: false
-        example: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+        example: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
         type: string
         enumValues: []
         exampleWasSpecified: false
         nullable: true
         custom: []
     cleanBodyParameters:
-      name: est
-      description: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+      name: yxzpxautheiuoiqzs
+      description: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/categories/{id}'
+    metadata:
+      groupName: Category
+      groupDescription: |-
+
+        APIs for managing categories
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Delete a category'
+      description: ''
+      authenticated: true
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the category.'
+        required: true
+        example: et
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        custom: []
+    cleanUrlParameters:
+      id: et
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
     fileParameters: []
     responses: []
     responseFields: []

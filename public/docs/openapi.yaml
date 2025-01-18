@@ -38,17 +38,17 @@ paths:
                 page:
                   type: integer
                   description: ''
-                  example: 12
+                  example: 5
                   nullable: false
                 per_page:
                   type: integer
                   description: ''
-                  example: 15
+                  example: 13
                   nullable: false
                 search:
                   type: string
                   description: ''
-                  example: ut
+                  example: reiciendis
                   nullable: true
               required:
                 - page
@@ -71,12 +71,12 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: autem
+                  example: quia
                   nullable: false
                 content:
                   type: string
                   description: ''
-                  example: in
+                  example: dicta
                   nullable: false
                 status:
                   type: string
@@ -129,17 +129,17 @@ paths:
                 title:
                   type: string
                   description: ''
-                  example: repellendus
+                  example: doloremque
                   nullable: false
                 content:
                   type: string
                   description: ''
-                  example: et
+                  example: dolorem
                   nullable: false
                 status:
                   type: string
                   description: ''
-                  example: published
+                  example: draft
                   nullable: false
                   enum:
                     - draft
@@ -161,7 +161,7 @@ paths:
         in: path
         name: id
         description: 'The ID of the article.'
-        example: dolores
+        example: provident
         required: true
         schema:
           type: string
@@ -184,22 +184,22 @@ paths:
                 name:
                   type: string
                   description: 'Must not be greater than 255 characters.'
-                  example: qsziywaunolcunptkuyxbvg
+                  example: jc
                   nullable: false
                 email:
                   type: string
                   description: 'Must be a valid email address. Must not be greater than 255 characters.'
-                  example: zaufderhar@example.org
+                  example: sterling.dach@example.com
                   nullable: false
                 password:
                   type: string
                   description: 'Must be at least 8 characters.'
-                  example: 'v),9eaYH*<D{ZQB^m*'
+                  example: 'zr0<BZMZ;rMFWp[P4q'
                   nullable: false
                 password_confirmation:
                   type: string
                   description: ''
-                  example: aut
+                  example: nihil
                   nullable: false
               required:
                 - name
@@ -226,17 +226,155 @@ paths:
                 email:
                   type: string
                   description: 'Must be a valid email address.'
-                  example: sam.smitham@example.com
+                  example: humberto.mueller@example.org
                   nullable: false
                 password:
                   type: string
                   description: ''
-                  example: ')=e!f`IhX`9TAeU=8,G-'
+                  example: 'I$_Gz"Ex_W'
                   nullable: false
               required:
                 - email
                 - password
       security: []
+  /api/v1/categories:
+    get:
+      summary: 'Get a list of categories'
+      operationId: getAListOfCategories
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: ''
+                  example: 4
+                  nullable: false
+                per_page:
+                  type: integer
+                  description: ''
+                  example: 1
+                  nullable: false
+                search:
+                  type: string
+                  description: ''
+                  example: animi
+                  nullable: true
+              required:
+                - page
+                - per_page
+    post:
+      summary: 'Create a new category'
+      operationId: createANewCategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: eceyqkxftddzldbnso
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Omnis vel sint aperiam numquam et nobis quia.'
+                  nullable: true
+              required:
+                - name
+  '/api/v1/categories/{id}':
+    get:
+      summary: 'Get a single category'
+      operationId: getASingleCategory
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Category
+    put:
+      summary: 'Update a category'
+      operationId: updateACategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Category
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: 'Must not be greater than 255 characters.'
+                  example: yxzpxautheiuoiqzs
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Voluptate dolore non sed necessitatibus exercitationem odit sit in.'
+                  nullable: true
+              required:
+                - name
+    delete:
+      summary: 'Delete a category'
+      operationId: deleteACategory
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Category
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the category.'
+        example: itaque
+        required: true
+        schema:
+          type: string
   /api/user:
     get:
       summary: ''
@@ -259,6 +397,140 @@ paths:
       tags:
         - Endpoints
       security: []
+  /api/v1/tags:
+    get:
+      summary: 'Get a list of tags'
+      operationId: getAListOfTags
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                page:
+                  type: integer
+                  description: ''
+                  example: 7
+                  nullable: false
+                per_page:
+                  type: integer
+                  description: ''
+                  example: 3
+                  nullable: false
+                search:
+                  type: string
+                  description: ''
+                  example: totam
+                  nullable: true
+              required:
+                - page
+                - per_page
+      security: []
+    post:
+      summary: 'Create a new tag'
+      operationId: createANewTag
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: quidem
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Illum molestiae est labore voluptas deleniti officiis.'
+                  nullable: true
+              required:
+                - name
+      security: []
+  '/api/v1/tags/{id}':
+    get:
+      summary: 'Show a tag'
+      operationId: showATag
+      description: ''
+      parameters: []
+      responses:
+        401:
+          description: ''
+          content:
+            application/json:
+              schema:
+                type: object
+                example:
+                  message: Unauthenticated.
+                properties:
+                  message:
+                    type: string
+                    example: Unauthenticated.
+      tags:
+        - Endpoints
+      security: []
+    put:
+      summary: 'Update a tag'
+      operationId: updateATag
+      description: ''
+      parameters: []
+      responses: {  }
+      tags:
+        - Endpoints
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                  description: ''
+                  example: est
+                  nullable: false
+                description:
+                  type: string
+                  description: ''
+                  example: 'Consectetur necessitatibus dolore suscipit totam repudiandae.'
+                  nullable: true
+              required:
+                - name
+      security: []
+    parameters:
+      -
+        in: path
+        name: id
+        description: 'The ID of the tag.'
+        example: maxime
+        required: true
+        schema:
+          type: string
 tags:
   -
     name: Article
@@ -266,6 +538,9 @@ tags:
   -
     name: Auth
     description: "\nAPIs for managing authentication"
+  -
+    name: Category
+    description: "\nAPIs for managing categories"
   -
     name: Endpoints
     description: ''
