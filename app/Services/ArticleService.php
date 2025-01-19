@@ -224,7 +224,7 @@ class ArticleService implements ArticleServiceInterface
         } catch (\Exception $e) {
             report($e);
 
-            Log::error(MessageEnum::ERROR_EXECPTION, 'deleting article', $e->getMessage());
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'deleting article', $e->getMessage()));
 
             DB::rollBack();
 

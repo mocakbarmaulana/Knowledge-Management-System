@@ -7,7 +7,8 @@ describe('ArticleCreateDto', function () {
             content: 'Content',
             slug: 'slug',
             status: 'published',
-            user_id: 1
+            user_id: 1,
+            category: 'category',
         );
 
         expect($dto->title)->toBe('Title');
@@ -15,5 +16,6 @@ describe('ArticleCreateDto', function () {
         expect($dto->slug)->toBe('slug');
         expect($dto->status)->toBe('published');
         expect($dto->user_id)->toBe(1);
+        expect($dto->category)->toBe('category');
     });
 });

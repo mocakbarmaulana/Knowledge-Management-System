@@ -16,6 +16,7 @@ describe('ArticleCreateRequest_rules', function() {
             'title' => 'required|string',
             'content' => 'required|string',
             'status' => 'required|in:draft,published',
+            'category' => 'nullable|string'
         ]);
     });
 });

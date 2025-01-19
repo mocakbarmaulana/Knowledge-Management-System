@@ -3,7 +3,9 @@
 use App\Dto\Article\ArticleCreateDto;
 use App\Dto\Article\ArticleGetDto;
 use App\Dto\DefaultResponseDto;
+use App\Enum\MessageEnum;
 use App\Models\Article;
+use App\Models\Category;
 use App\Services\ArticleService;
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +13,10 @@ use Illuminate\Support\Facades\DB;
 beforeEach(function () {
     /** @var \App\Models\Article|Mockery\MockInterface $mockArticleModel */
     $this->mockArticleModel = Mockery::mock('alias:' . Article::class);
+    /** @var \App\Models\Category|Mockery\MockInterface $mockCategoryModel */
+    $this->mockCategoryModel = Mockery::mock('alias:' . Category::class);
+
+    $this->articleService = new ArticleService($this->mockArticleModel, $this->mockCategoryModel);
 });
 
 describe('ArticleService_getArticles', function () {
@@ -39,12 +45,11 @@ describe('ArticleService_getArticles', function () {
 
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->getArticles($payload);
+        $response = $this->articleService->getArticles($payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(true);
-        expect($response->message)->toBe('Articles fetched successfully');
+        expect($response->message)->toBe(sprintf(MessageEnum::SUCCESS_MESSAGE, 'fetch articles'));
         expect($response->data)->toHaveKey('content');
         expect($response->data)->toHaveKey('pagination');
     });
@@ -62,8 +67,7 @@ describe('ArticleService_getArticles', function () {
 
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->getArticles($payload);
+        $response = $this->articleService->getArticles($payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -79,6 +83,7 @@ describe('ArticleService_createArticle', function () {
         slug: 'article-1',
         status: 'published',
         user_id: 1,
+        category: 'Category 1',
     );
 
     it('should return success response', function () use ($payload) {
@@ -105,15 +110,23 @@ describe('ArticleService_createArticle', function () {
                 }
             });
 
+        $this->mockCategoryModel
+            ->shouldReceive('where->first')
+            ->once()
+            ->andReturnNull();
+        $this->mockCategoryModel
+            ->shouldReceive('create')
+            ->once()
+            ->andReturn((object) ['id' => 1]);
+
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
         DB::shouldReceive('commit')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->createArticle($payload);
+        $response = $this->articleService->createArticle($payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(true);
-        expect($response->message)->toBe('Article created successfully');
+        expect($response->message)->toBe(sprintf(MessageEnum::SUCCESS_MESSAGE, 'create article'));
         expect($response->data)->toHaveKey('id');
         expect($response->data)->toHaveKey('title');
         expect($response->data)->toHaveKey('content');
@@ -127,8 +140,7 @@ describe('ArticleService_createArticle', function () {
 
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->createArticle($payload);
+        $response = $this->articleService->createArticle($payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -146,11 +158,15 @@ describe('ArticleService_createArticle', function () {
             ->shouldReceive('create')
             ->andThrow(new \Exception('An error occurred'));
 
+        $this->mockCategoryModel
+            ->shouldReceive('where->first')
+            ->once()
+            ->andReturn((object) ['id' => 1]);
+
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
         DB::shouldReceive('rollBack')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->createArticle($payload);
+        $response = $this->articleService->createArticle($payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -181,12 +197,11 @@ describe('ArticleService_showArticle', function() {
                 }
             });
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->showArticle($id);
+        $response = $this->articleService->showArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(true);
-        expect($response->message)->toBe('Article fetched successfully');
+        expect($response->message)->toBe(sprintf(MessageEnum::SUCCESS_MESSAGE, 'show article'));
         expect($response->data)->toHaveKey('id');
         expect($response->data)->toHaveKey('title');
         expect($response->data)->toHaveKey('content');
@@ -198,8 +213,7 @@ describe('ArticleService_showArticle', function() {
             ->once()
             ->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->showArticle($id);
+        $response = $this->articleService->showArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -212,12 +226,11 @@ describe('ArticleService_showArticle', function() {
             ->shouldReceive('find')
             ->andThrow(new \Exception('An error occurred'));
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->showArticle($id);
+        $response = $this->articleService->showArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
-        expect($response->message)->toBe('Failed to fetch detail article | An error occurred');
+        expect($response->message)->toBe(sprintf(MessageEnum::FAILED_MESSAGE, 'show article', 'An error occurred'));
         expect($response->data)->toBeNull();
     });
 });
@@ -229,6 +242,7 @@ describe('ArticleService_updateArticle', function() {
         slug: 'article-23-updated',
         status: 'published',
         user_id: 1,
+        category: 'Category 1',
     );
 
     $id = 23;
@@ -258,15 +272,23 @@ describe('ArticleService_updateArticle', function() {
             ->once()
             ->andReturn(false);
 
+        $this->mockCategoryModel
+            ->shouldReceive('where->first')
+            ->once()
+            ->andReturnNull();
+        $this->mockCategoryModel
+            ->shouldReceive('create')
+            ->once()
+            ->andReturn((object) ['id' => 1]);
+
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
         DB::shouldReceive('commit')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->updateArticle($id, $payload);
+        $response = $this->articleService->updateArticle($id, $payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(true);
-        expect($response->message)->toBe('Article updated successfully');
+        expect($response->message)->toBe(sprintf(MessageEnum::SUCCESS_MESSAGE, 'update article'));
         expect($response->data)->toHaveKey('id');
         expect($response->data)->toHaveKey('title');
         expect($response->data)->toHaveKey('content');
@@ -291,8 +313,7 @@ describe('ArticleService_updateArticle', function() {
 
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->updateArticle($id, $payload);
+        $response = $this->articleService->updateArticle($id, $payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -306,8 +327,7 @@ describe('ArticleService_updateArticle', function() {
             ->once()
             ->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->updateArticle($id, $payload);
+        $response = $this->articleService->updateArticle($id, $payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -320,8 +340,7 @@ describe('ArticleService_updateArticle', function() {
             ->shouldReceive('find')
             ->andThrow(new \Exception('An error occurred'));
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->updateArticle($id, $payload);
+        $response = $this->articleService->updateArticle($id, $payload);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -349,8 +368,7 @@ describe('ArticleService_deleteArticle', function() {
         DB::shouldReceive('beginTransaction')->once()->andReturnNull();
         DB::shouldReceive('commit')->once()->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->deleteArticle($id);
+        $response = $this->articleService->deleteArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(true);
@@ -364,8 +382,7 @@ describe('ArticleService_deleteArticle', function() {
             ->once()
             ->andReturnNull();
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->deleteArticle($id);
+        $response = $this->articleService->deleteArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);
@@ -378,8 +395,7 @@ describe('ArticleService_deleteArticle', function() {
             ->shouldReceive('find')
             ->andThrow(new \Exception('An error occurred'));
 
-        $articleService = new ArticleService($this->mockArticleModel);
-        $response = $articleService->deleteArticle($id);
+        $response = $this->articleService->deleteArticle($id);
 
         expect($response)->toBeInstanceOf(DefaultResponseDto::class);
         expect($response->status)->toBe(false);

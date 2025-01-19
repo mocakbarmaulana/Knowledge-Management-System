@@ -138,6 +138,7 @@ Reason: to lazy, because not code in my work laptop then error i don't know
 ## 19 Januari 2025
 - Update service article create and update for category
 - Update message to using sprintf with message enum
+- Update unit test article dto, request, service to 100% coverage.
 
 ### Problem & solution
 - theres is no problem yet
