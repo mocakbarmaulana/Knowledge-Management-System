@@ -6,7 +6,9 @@ use App\Contracts\Article\ArticleServiceInterface;
 use App\Dto\Article\ArticleCreateDto;
 use App\Dto\Article\ArticleGetDto;
 use App\Dto\DefaultResponseDto;
+use App\Enum\MessageEnum;
 use App\Models\Article;
+use App\Models\Category;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -18,10 +20,12 @@ class ArticleService implements ArticleServiceInterface
     protected $articleNotFound = 'Article not found';
 
     protected Article $article;
+    protected Category $category;
 
-    public function __construct(Article $article)
+    public function __construct(Article $article, Category $category)
     {
         $this->article = $article;
+        $this->category = $category;
     }
 
     /**
@@ -52,15 +56,15 @@ class ArticleService implements ArticleServiceInterface
             ];
 
             return $this->successResponseDto(
-                'Articles fetched successfully',
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'fetch articles'),
                 $response
             );
         } catch (\Exception $e) {
             report($e);
 
-            Log::error('Unexpected error during article fetching: ' . $e->getMessage());
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'fetching articles', $e->getMessage()));
 
-            return $this->errorResponseDto('Failed to fetch articles | ' . $e->getMessage());
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'fetch articles', $e->getMessage()));
         }
     }
 
@@ -81,28 +85,37 @@ class ArticleService implements ArticleServiceInterface
                 return $this->errorResponseDto('Article is already exists with the same title');
             }
 
+            $category = $this->category->where('name', $payload->category)->first();
+
+            if (!$category) {
+                $category = $this->category->create([
+                    'name' => $payload->category
+                ]);
+            }
+
             $article = $this->article->create([
                 'title' => $payload->title,
                 'content' => $payload->content,
                 'slug' => $payload->slug,
                 'status' => $payload->status,
-                'user_id' => $payload->user_id
+                'user_id' => $payload->user_id,
+                'category_id' => $category->id
             ]);
 
             DB::commit();
 
             return $this->successResponseDto(
-                'Article created successfully',
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'create article'),
                 $article->toArray(),
             );
         } catch (\Exception $e) {
             report($e);
 
-            Log::error('Unexpected error during article creation: ' . $e->getMessage());
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'creating article', $e->getMessage()));
 
             DB::rollBack();
 
-            return $this->errorResponseDto('Failed to create article | ' . $e->getMessage());
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'create article', $e->getMessage()));
         }
     }
 
@@ -122,15 +135,15 @@ class ArticleService implements ArticleServiceInterface
             }
 
             return $this->successResponseDto(
-                'Article fetched successfully',
+               sprintf(MessageEnum::SUCCESS_MESSAGE, 'show article'),
                 $article->toArray(),
             );
         } catch (\Exception $e) {
             report($e);
 
-            Log::error('Unexpected error during detail article fetching: ' . $e->getMessage());
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'showing article', $e->getMessage()));
 
-            return $this->errorResponseDto('Failed to fetch detail article | ' . $e->getMessage());
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'show article', $e->getMessage()));
         }
     }
 
@@ -152,28 +165,37 @@ class ArticleService implements ArticleServiceInterface
                 return $article;
             }
 
+            $category = $this->category->where('name', $payload->category)->first();
+
+            if (!$category) {
+                $category = $this->category->create([
+                    'name' => $payload->category
+                ]);
+            }
+
             $article->update([
                 'title' => $payload->title,
                 'content' => $payload->content,
                 'slug' => $payload->slug,
                 'status' => $payload->status,
-                'user_id' => $payload->user_id
+                'user_id' => $payload->user_id,
+                'category_id' => $category->id
             ]);
 
             DB::commit();
 
             return $this->successResponseDto(
-                'Article updated successfully',
+                sprintf(MessageEnum::SUCCESS_MESSAGE, 'update article'),
                 $article->toArray(),
             );
         } catch (\Exception $e) {
             report($e);
 
-            Log::error('Unexpected error during article update: ' . $e->getMessage());
+            Log::error(sprintf(MessageEnum::ERROR_EXECPTION, 'updating article', $e->getMessage()));
 
             DB::rollBack();
 
-            return $this->errorResponseDto('Failed to update article | ' . $e->getMessage());
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'update article', $e->getMessage()));
         }
     }
 
@@ -202,11 +224,11 @@ class ArticleService implements ArticleServiceInterface
         } catch (\Exception $e) {
             report($e);
 
-            Log::error('Unexpected error during article deletion: ' . $e->getMessage());
+            Log::error(MessageEnum::ERROR_EXECPTION, 'deleting article', $e->getMessage());
 
             DB::rollBack();
 
-            return $this->errorResponseDto('Failed to delete article | ' . $e->getMessage());
+            return $this->errorResponseDto(sprintf(MessageEnum::FAILED_MESSAGE, 'delete article', $e->getMessage()));
         }
     }
 

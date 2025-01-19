@@ -29,6 +29,7 @@ class ArticleCreateRequest extends FormRequest
             'title' => $requiredString,
             'content' => $requiredString,
             'status' => 'required|in:draft,published',
+            'category' => 'nullable|string'
         ];
     }
 
@@ -40,6 +41,7 @@ class ArticleCreateRequest extends FormRequest
         $this->merge([
             'slug' => Str::slug($this->title),
             'user_id' => Auth::id(),
+            'category' => Str::lower($this->category ?? 'Uncategorized')
         ]);
     }
 }

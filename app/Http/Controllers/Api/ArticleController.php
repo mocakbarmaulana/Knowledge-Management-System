@@ -10,6 +10,7 @@ use App\Http\Requests\Article\ArticleGetRequest;
 use App\Services\ArticleService;
 use App\Traits\JsonResponseTrait;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Str;
 
 /**
  * Class ArticleController
@@ -65,6 +66,7 @@ class ArticleController extends Controller
             slug: $request->slug,
             status: $request->status,
             user_id: $request->user_id,
+            category: Str::lower($request->category),
         );
 
         $result = $this->articleService->createArticle($payload);
@@ -100,6 +102,7 @@ class ArticleController extends Controller
             slug: $request->slug,
             status: $request->status,
             user_id: $request->user_id,
+            category: Str::lower($request->category),
         );
 
         $result = $this->articleService->updateArticle($id, $payload);

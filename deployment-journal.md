@@ -121,3 +121,27 @@ Reason: cause to boring repeat crud categories like article
 Time spent: 1 hour
 Mood: 6/10
 Reason: cause to boring and repeat crud logic.
+
+## 17 Januari 2025
+- SKIP
+
+## 18 Januari 2025
+- Update service categories to using sprintf with message enum
+
+### Problem & solution
+- theres is no problem yet
+
+Time spent: 1 hour
+Mood: 5/10
+Reason: to lazy, because not code in my work laptop then error i don't know
+
+## 19 Januari 2025
+- Update service article create and update for category
+- Update message to using sprintf with message enum
+
+### Problem & solution
+- theres is no problem yet
+
+Time spent: 1 hour
+Mood: 9/1-
+Reason: cause new update logic article server

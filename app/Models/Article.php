@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Article extends Model
 {
@@ -13,6 +14,7 @@ class Article extends Model
         'content',
         'slug',
         'status',
-        'user_id'
+        'user_id',
+        'category_id'
     ];
 }

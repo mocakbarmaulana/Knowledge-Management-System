@@ -11,6 +11,7 @@ class ArticleCreateDto extends Data
         public string $content,
         public string $slug,
         public string $status,
+        public ?string $category,
         public int $user_id
     ) {}
 }

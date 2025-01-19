@@ -9,6 +9,6 @@ class ArticleGetDto extends Data
     public function __construct(
         public int $page,
         public int $perPage,
-        public string $search = ''
+        public ?string $search = ''
     ) {}
 }
